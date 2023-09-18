@@ -27,3 +27,7 @@ body{
     min-width: 6%;
     background-color: black;
 }
+
+.hover {
+    background-color: pink;
+}
