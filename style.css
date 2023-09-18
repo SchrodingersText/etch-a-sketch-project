@@ -1,0 +1,29 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body{
+ margin: 0;
+ padding: 0;
+ display: flex;
+ justify-content: center;
+ background-color: lavender;
+}
+
+.grid-container {
+    height: 95vh;
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.grid-square {
+    min-height: 6%;
+    min-width: 6%;
+    background-color: black;
+}
