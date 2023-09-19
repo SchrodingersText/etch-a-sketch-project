@@ -18,13 +18,21 @@ body{
     height: 95vh;
     aspect-ratio: 1/1;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
+    border: 3rem solid coral;
+    border-radius: 20px;
+}
+
+.row {
+    height: 100%;
+    width: 100%;
+    display: flex;
 }
 
 .grid-square {
-    min-height: 6%;
-    min-width: 6%;
+    height: 100%;
+    width: 100%;
     background-color: black;
 }
 
@@ -34,4 +42,8 @@ body{
 
 .left-sidebar, .right-sidebar {
    width: 30vw;
+}
+
+.right-sidebar {
+    padding:1rem 1rem 0 3rem;
 }
