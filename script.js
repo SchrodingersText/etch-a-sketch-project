@@ -3,14 +3,12 @@ const gridContainer = document.querySelector(".grid-container");
 function generateGrid(size, size) {
     size = parseInt(document.querySelector("#grid-size").value);
     const gridSize = size * size;
+    const errorMsg = document.querySelector(".error-msg");
+    errorMsg.textContent = "";
 
     if (size > 100) {
-        const errorMsg = document.createElement("p");
-        errorMsg.classList.add("error-msg")
         errorMsg.textContent = "100 is the maximum size. Please enter a number less than or equal to 100.";
-        const rightSidebar = document.querySelector(".right-sidebar");
-        rightSidebar.appendChild(errorMsg);
-        return;
+        size = 16;
     }
     
     for (let i = 1; i <= size; i++) {
