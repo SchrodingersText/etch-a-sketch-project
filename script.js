@@ -25,17 +25,29 @@ function generateGrid(size, size) {
             row.appendChild(gridSquare);
         });
     }
-
-    const grid = document.querySelectorAll(".grid-square")
-
-    grid.forEach(div => {
-        div.addEventListener("mouseover", () => {
-            div.classList.add("hover");
-        });
-    });
+    colorSelect()
 };
 
 generateGrid();
+
+const randomColorButton = document.querySelector("#randomize-color");
+let randomColor = false;
+document.querySelector("#randomize-color").addEventListener("click", () => {
+    randomColor = true;
+});
+
+function colorSelect() { 
+    const grid = document.querySelectorAll(".grid-square")
+    grid.forEach(div => {
+        div.addEventListener("mouseover", () => {
+            if (randomColor) {
+              div.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+            } else {
+             div.classList.add("hover");
+            }
+        }) 
+    });
+}
 
 function clearGrid() {
     const rows = document.querySelectorAll(".row");
@@ -45,10 +57,7 @@ function clearGrid() {
 };
 
 const resizeButton = document.querySelector("#resize-btn")
-const gridHeight = document.querySelector("#grid-height")
-const heightInput = parseInt(document.querySelector("#grid-size").value)
-const widthInput = parseInt(document.querySelector("#grid-size").value);
 resizeButton.addEventListener("click", () => {
     clearGrid()
-    generateGrid(heightInput, widthInput)
-})
+    generateGrid(); 
+});
