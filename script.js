@@ -30,9 +30,16 @@ function generateGrid(size, size) {
 
 generateGrid();
 
+const defaultColorButton = document.querySelector("#default-color");
 const randomColorButton = document.querySelector("#randomize-color");
+let defaultColor = true;
 let randomColor = false;
-document.querySelector("#randomize-color").addEventListener("click", () => {
+defaultColorButton.addEventListener("click", () => {
+    defaultColor = true;
+    randomColor = false;
+});
+randomColorButton.addEventListener("click", () => {
+    defaultColor = false;
     randomColor = true;
 });
 
@@ -43,7 +50,7 @@ function colorSelect() {
             if (randomColor) {
               div.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);
             } else {
-             div.classList.add("hover");
+             div.style.backgroundColor = "pink"
             }
         }) 
     });
