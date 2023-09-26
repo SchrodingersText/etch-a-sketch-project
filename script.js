@@ -89,9 +89,11 @@ function colorSelect() {
     grid.forEach(div => {
         div.addEventListener("mouseover", () => {
             if (randomColor && isEventListenerActive) {
-              div.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+                div.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+            } else if (eraseColor && isEventListenerActive) {
+                div.style.backgroundColor = "black";
             } else if (isEventListenerActive) {
-             div.style.backgroundColor = "white"
+                div.style.backgroundColor = "white";
             }
         }) 
     });
