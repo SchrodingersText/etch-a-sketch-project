@@ -46,19 +46,42 @@ generateGrid();
 
 const defaultColorButton = document.querySelector("#default-color");
 const randomColorButton = document.querySelector("#randomize-color");
+const eraserButton = document.querySelector("#eraser");
 let defaultColor = true;
 let randomColor = false;
+let eraseColor = false;
 defaultColorButton.addEventListener("click", () => {
     defaultColor = true;
     randomColor = false;
+    eraseColor = false;
+    if (randomColorButton.classList.contains("selected")) {
+        randomColorButton.classList.toggle("selected")
+    } else if (eraserButton.classList.contains("selected")) {
+        eraserButton.classList.toggle("selected")
+    }
     defaultColorButton.classList.toggle("selected")
-    randomColorButton.classList.toggle("selected")
 });
 randomColorButton.addEventListener("click", () => {
-    defaultColor = false;
     randomColor = true;
+    defaultColor = false;
+    eraseColor = false;
+    if (defaultColorButton.classList.contains("selected")) {
+        defaultColorButton.classList.toggle("selected")
+    } else if (eraserButton.classList.contains("selected")) {
+        eraserButton.classList.toggle("selected")
+    }
     randomColorButton.classList.toggle("selected")
-    defaultColorButton.classList.toggle("selected")
+});
+eraserButton.addEventListener("click", () => {
+    eraseColor = true;
+    defaultColor = false;
+    randomColor = false;
+    if (defaultColorButton.classList.contains("selected")) {
+        defaultColorButton.classList.toggle("selected")
+    } else if (randomColorButton.classList.contains("selected")) {
+        randomColorButton.classList.toggle("selected")
+    }
+    eraserButton.classList.toggle("selected")
 });
 
 function colorSelect() { 
