@@ -1,5 +1,19 @@
 const gridContainer = document.querySelector(".grid-container");
 
+let isEventListenerActive = true;
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === " ") {
+        if (!isEventListenerActive) {
+            isEventListenerActive = true;
+            document.querySelector(".pause-msg").textContent = ""
+        } else {
+            isEventListenerActive = !isEventListenerActive;
+            document.querySelector(".pause-msg").textContent = "Pen paused"
+        }
+    }
+});
+
 function generateGrid(size, size) {
     size = parseInt(document.querySelector("#grid-size").value);
     const gridSize = size * size;
@@ -37,20 +51,24 @@ let randomColor = false;
 defaultColorButton.addEventListener("click", () => {
     defaultColor = true;
     randomColor = false;
+    defaultColorButton.classList.toggle("selected")
+    randomColorButton.classList.toggle("selected")
 });
 randomColorButton.addEventListener("click", () => {
     defaultColor = false;
     randomColor = true;
+    randomColorButton.classList.toggle("selected")
+    defaultColorButton.classList.toggle("selected")
 });
 
 function colorSelect() { 
     const grid = document.querySelectorAll(".grid-square")
     grid.forEach(div => {
         div.addEventListener("mouseover", () => {
-            if (randomColor) {
+            if (randomColor && isEventListenerActive) {
               div.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);
-            } else {
-             div.style.backgroundColor = "pink"
+            } else if (isEventListenerActive) {
+             div.style.backgroundColor = "white"
             }
         }) 
     });

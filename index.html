@@ -4,15 +4,26 @@
     <meta charset="UTF-8">
     <title>Etch-a-Sketch!</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@300;500;600;700&family=Monoton&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="left-sidebar"></div>
-
-    <div class="grid-container"></div>
+    <div class="left-sidebar">
+        <p><span>Tip:</span> Pressing <kbd>Space</kbd> will disable the pen, allowing you 
+            to move your cursor without leaving a mark. Press <kbd>Space</kbd> again to enable the pen.
+        </p>
+        <p class="pause-msg"></p>
+    </div>
+    
+    <div class="board">
+        <h1 id="title">Pix-A-Paint</h1>
+        <div class="grid-container"></div>
+    </div>
 
     <div class="right-sidebar">
         <p>Change pen color:</p>
-        <button id="default-color">Default</button>
+        <button id="default-color" class="selected">Default</button>
         <button id="randomize-color">Psychedelic</button>
         <form>
             <label for="grid-size" class="grid-size-label">Grid size:</label>
