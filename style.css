@@ -123,11 +123,11 @@ kbd {
 
 
 #title {
-    margin: -5rem -2rem 0 -2rem;
+    margin: -3.8rem -2rem 0 -2rem;
     padding: -2rem 0 0 0;
     z-index: 1;
     font-family: "Monoton", sans-serif;
-    font-size: 7.8rem;
+    font-size: 6.5rem;
     font-weight: 400;
     background: -webkit-radial-gradient( #ff5100, #700061);
     -webkit-background-clip: text;
